@@ -13,31 +13,32 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class HyperfangTeleOp2425 extends LinearOpMode{
-    public DcMotorEx fl = null;
-    public DcMotorEx bl = null;
-    public DcMotorEx fr = null;
-    public DcMotorEx br = null;
+    public DcMotorEx leftFront = null;
+    public DcMotorEx leftBack = null;
+    public DcMotorEx rightFront = null;
+    public DcMotorEx rightBack = null;
+
 
 
     @Override
     public void runOpMode() {
         double speed, lift; speed = 1; lift = 1;
 
-        fl = hardwareMap.get(DcMotorEx.class, "frontLeft");
-        bl = hardwareMap.get(DcMotorEx.class, "backLeft");
-        fr = hardwareMap.get(DcMotorEx.class, "frontRight");
+        leftFront = hardwareMap.get(DcMotorEx.class, "frontLeft");
+        leftBack = hardwareMap.get(DcMotorEx.class, "backLeft");
+        rightFront = hardwareMap.get(DcMotorEx.class, "frontRight");
 
-        fl.setDirection(DcMotorEx.Direction.REVERSE);
-        bl.setDirection(DcMotorEx.Direction.REVERSE);
+        leftFront.setDirection(DcMotorEx.Direction.REVERSE);
+        leftBack.setDirection(DcMotorEx.Direction.REVERSE);
 
-        fl.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        bl.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        fr.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        br.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        fl.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        bl.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        fr.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        br.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        leftFront.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        leftBack.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        rightFront.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        rightBack.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        leftFront.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        leftBack.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        rightFront.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        rightBack.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         waitForStart();
 
         Gamepad currentGamepad1 = new Gamepad();
@@ -68,14 +69,14 @@ public class HyperfangTeleOp2425 extends LinearOpMode{
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
 
-            fl.setPower(frontLeftPower);
-            bl.setPower(backLeftPower);
-            fr.setPower(frontRightPower);
-            br.setPower(backRightPower);
+            leftFront.setPower(frontLeftPower);
+            leftBack.setPower(backLeftPower);
+            rightFront.setPower(frontRightPower);
+            rightBack.setPower(backRightPower);
 
             if(gamepad1.b){
-                fl.setPower(1);
-                br.setPower(1);
+                leftFront.setPower(1);
+                rightBack.setPower(1);
                 sleep(1000);
             }
 
