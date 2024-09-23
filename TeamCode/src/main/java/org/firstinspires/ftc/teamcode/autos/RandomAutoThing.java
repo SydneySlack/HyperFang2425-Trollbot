@@ -15,15 +15,17 @@ public class RandomAutoThing extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        fl = hardwareMap.get(DcMotorEx.class, "frontLeft");
-        bl = hardwareMap.get(DcMotorEx.class, "backLeft");
-        fr = hardwareMap.get(DcMotorEx.class, "frontRight");
-        br = hardwareMap.get(DcMotorEx.class, "backRight");
+        fl = hardwareMap.get(DcMotorEx.class, "leftFront");
+        bl = hardwareMap.get(DcMotorEx.class, "leftBack");
+        fr = hardwareMap.get(DcMotorEx.class, "rightFront");
+        br = hardwareMap.get(DcMotorEx.class, "rightBack");
 
         fl.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         bl.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         fr.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         br.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+
+        br.setDirection(DcMotorEx.Direction.REVERSE);   
 
         fl.setPower(-0.5);
         bl.setPower(0.5);
