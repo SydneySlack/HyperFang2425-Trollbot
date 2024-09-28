@@ -1,18 +1,12 @@
 package org.firstinspires.ftc.teamcode.DriverOpmodes;
 
-import static android.os.SystemClock.sleep;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.CRServo;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class HyperfangTeleOp2425 extends LinearOpMode{
+public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
     public DcMotorEx leftFront = null;
     public DcMotorEx leftBack = null;
     public DcMotorEx rightFront = null;
