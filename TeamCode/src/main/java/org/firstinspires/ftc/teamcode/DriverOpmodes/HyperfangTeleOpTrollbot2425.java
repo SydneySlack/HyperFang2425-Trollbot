@@ -28,7 +28,7 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
         rotServo = hardwareMap.get(CRServo.class, "rotServo");
 
         leftBack.setDirection(DcMotorEx.Direction.REVERSE);
-        rightFront.setDirection(DcMotorEx.Direction.REVERSE);
+        leftFront.setDirection(DcMotorEx.Direction.REVERSE);
 
         leftFront.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         leftBack.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
