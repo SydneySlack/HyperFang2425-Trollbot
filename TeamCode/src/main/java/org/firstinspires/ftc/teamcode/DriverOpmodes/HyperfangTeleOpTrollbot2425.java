@@ -2,8 +2,10 @@ package org.firstinspires.ftc.teamcode.DriverOpmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
 public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
@@ -11,6 +13,7 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
     public DcMotorEx leftBack = null;
     public DcMotorEx rightFront = null;
     public DcMotorEx rightBack = null;
+    public CRServo rotServo = null;
 
 
 
@@ -22,6 +25,7 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
         leftBack = hardwareMap.get(DcMotorEx.class, "leftBack");
         rightFront = hardwareMap.get(DcMotorEx.class, "rightFront");
         rightBack = hardwareMap.get(DcMotorEx.class, "rightBack");
+        rotServo = hardwareMap.get(CRServo.class, "rotServo");
 
         leftBack.setDirection(DcMotorEx.Direction.REVERSE);
         rightFront.setDirection(DcMotorEx.Direction.REVERSE);
@@ -69,7 +73,7 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
             rightFront.setPower(frontRightPower);
             rightBack.setPower(backRightPower);
 
-            if(gamepad1.b){
+            if(gamepad1.b) {
                 leftFront.setPower(1);
                 rightBack.setPower(1);
                 sleep(1000);
