@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 @TeleOp
 public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
     public DcMotorEx leftFront = null;
@@ -25,10 +27,11 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
         leftBack = hardwareMap.get(DcMotorEx.class, "leftBack");
         rightFront = hardwareMap.get(DcMotorEx.class, "rightFront");
         rightBack = hardwareMap.get(DcMotorEx.class, "rightBack");
-        rotServo = hardwareMap.get(CRServo.class, "rotServo");
+        //rotServo = hardwareMap.get(CRServo.class, "rotServo");
 
         leftBack.setDirection(DcMotorEx.Direction.REVERSE);
         leftFront.setDirection(DcMotorEx.Direction.REVERSE);
+        rightFront.setDirection(DcMotorEx.Direction.REVERSE);
 
         leftFront.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         leftBack.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
@@ -83,6 +86,10 @@ public class HyperfangTeleOpTrollbot2425 extends LinearOpMode{
             else if (currentGamepad1.left_bumper && !previousGamepad1.left_bumper) {speed = Math.max(speed - 0.2, 0);}
 
             telemetry.addLine("speed: " + speed);
+            telemetry.addLine("frontRight: " + frontRightPower);
+            telemetry.addLine("frontLeft: " + frontLeftPower);
+            telemetry.addLine("backRight: " + backRightPower);
+            telemetry.addLine("backLeft: " + backLeftPower);
             telemetry.update();
             sleep(50);
         }
